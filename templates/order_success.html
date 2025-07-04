@@ -1,0 +1,6 @@
+<h2>Order Successful!</h2>
+<ul>
+  {% for order in orders %}
+  <li>{{ order.customer.name }} ordered {{ order.quantity }} x {{ order.food_item.name }} - ₹{{ order.total_price }}</li>
+  {% endfor %}
+</ul>

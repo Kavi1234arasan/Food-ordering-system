@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>order</title>
+</head>
+<body>
+  <h2>Place Your Order</h2>
+<form method="POST">
+  {% csrf_token %}
+  <label>Name:</label>
+  <input type="text" name="name"><br><br>
+  <label>Email:</label>
+  <input type="text" name="email"><br><br>
+  <label>Address:</label>
+  <input type="text" name="address" placeholder="text"><br><br>
+  <label>Food Item:</label>
+  <select name="food_item">
+    {% for item in items %}
+    <option value="{{ item.id }}">{{ item.name }} - ₹{{ item.price }} -- Restaurant-{{item.restaurant}} -- Ratings {{item.rating}}</option>
+    {% endfor %}
+  </select><br><br>
+  <label>Quantity:</label> 
+  <input type="number" name="quantity"><br><br>
+  <div class="container">
+  <button type="submit">Order</button>
+  </div>
+</form>
+  
+</body>
+</html>
